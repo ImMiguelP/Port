@@ -1,6 +1,5 @@
-import { Button, Center, Heading, Icon, Image, Stack } from '@chakra-ui/react'
+import {  Center, Heading,Stack } from '@chakra-ui/react'
 import Technologies from '@/components/Technologies'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Contact from '@/components/Contact'
 
 
