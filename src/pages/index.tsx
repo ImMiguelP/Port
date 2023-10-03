@@ -1,6 +1,7 @@
-import {  Button, Center, Heading,Stack } from '@chakra-ui/react'
+import {  Center, Heading,Stack } from '@chakra-ui/react'
 import Technologies from '@/components/Technologies'
 import Contact from '@/components/Contact'
+import Projects from '@/components/Projects'
 
 
 export default function Home() {
@@ -8,7 +9,7 @@ export default function Home() {
   
   return (
     <Center h={"100vh"} >
-      <Stack w={"100%"} maxW={"1000px"} h={"100%"} pt={"200px"} border={"1px solid red"} spacing={3}>
+      <Stack w={"100%"} maxW={"1000px"} h={"100%"} pt={"200px"}  spacing={3}>
       <Heading as={"h1"} size={"xl"}>
         Miguel
       </Heading>
@@ -21,6 +22,12 @@ export default function Home() {
         <Stack direction={"row"}>
           <Technologies />
           </Stack>
+          <Heading pt={"12px"}>
+        Projects
+      </Heading>
+      <Stack>
+        <Projects />
+      </Stack>
       <Heading pt={"12px"}>
         Contact
       </Heading>
