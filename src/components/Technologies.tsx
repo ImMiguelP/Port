@@ -15,13 +15,13 @@ const Technologies = () => {
   ];
 
   return (
-    <SimpleGrid columns={[1, 2, 3]} spacing={4}>
+    <>
     {technologies.map((tech, index) => (
       <Tooltip key={index} label={`${tech.name}`}>
         <Image boxSize={"32px"} src={tech.image} alt={`${tech.name} Logo`} />
       </Tooltip>
     ))}
-  </SimpleGrid>
+  </>
 );
 };
 
