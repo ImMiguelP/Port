@@ -1,7 +1,7 @@
 import {  Center, Heading,Stack } from '@chakra-ui/react'
-import Technologies from '@/components/Technologies'
-import Contact from '@/components/Contact'
-import Projects from '@/components/Projects'
+import Technologies from '@/components/Technologies/Technologies'
+import Contact from '@/components/Contacts/Contact'
+import Projects from '@/components/ProjectInfo/Projects'
 
 
 export default function Home() {
