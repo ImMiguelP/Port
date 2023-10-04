@@ -7,9 +7,9 @@ import React from 'react'
 
 const Contact = () => {
   const contactinfo = [
-    { name: 'Github', icon: <FaLinkedin size={"32px"} />, link: 'https://github.com/ImMiguelP' },
-    { name: 'LinkedIn', icon:<FaGithubAlt size={"32px"} />, link: 'https://www.linkedin.com/in/miguelpedreguera/'},
-    { name: 'Mail', icon: <MdMail size={"32px"}/>, email: "miguelpedreguera84@gmail.com"}
+    { name: 'Github', icon: <FaGithubAlt size={"32px"} />, link: 'https://github.com/ImMiguelP' },
+    { name: 'LinkedIn', icon:<FaLinkedin size={"32px"} />, link: 'https://www.linkedin.com/in/miguelpedreguera/'},
+    { name: 'Mail', icon: <MdMail size={"32px"}/>, email: "miguelpedreguera84@gmail.com"},
   ];
 
   const sendEmail = (emailAddress: string) => {

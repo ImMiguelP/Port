@@ -17,7 +17,7 @@ const hoverEffect = useZoom();
   return (
     <>
     {projects.map((project, index) => (
-      <Tooltip key={index} label={`${project.name}`}>
+      <Tooltip key={index} label={`${project.name}`} placement='bottom-start'>
         <Button as={Box} variant={"outline"} w={"100%"} rounded={"lg"} {...hoverEffect}  >
             <HStack justifyContent={"space-between"} alignContent={"self-start"} w={"100%"}>
             <Text>{project.name}
