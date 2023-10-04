@@ -26,7 +26,7 @@ const ContactInfo: React.FC<ContactInfoProps> = ({ name, icon, link, email }) =>
     <Tooltip label={name}>
       <Button
         variant="outline"
-        w="100%"
+        w="95%"
         rounded="lg"
         onClick={handleButtonClick}
         {...hoverEffect}
