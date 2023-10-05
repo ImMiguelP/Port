@@ -1,10 +1,11 @@
-import { Grid, useBreakpointValue } from '@chakra-ui/react'
+import { Box, Grid, useBreakpointValue } from '@chakra-ui/react'
 import { TbBrandNextjs } from "react-icons/tb";
 import { SiChakraui, SiSupabase, SiRemix, SiFirebase, SiJavascript, SiTypescript, SiTailwindcss, SiReact} from "react-icons/si";
-import React from 'react'
+import React, { useState } from 'react'
 import Technology from './Technology';
 
 const Technologies = () => {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const technologies = [
     { name: 'Javascript', icon: <SiJavascript size={"32px"} />, link: 'https://www.javascript.com/'},
     { name: 'Typescript', icon: <SiTypescript size={"32px"}  /> , link: 'https://www.typescriptlang.org/'},
@@ -28,7 +29,15 @@ const Technologies = () => {
       alignItems="center"
     >
       {technologies.map((tech, index) => (
+         <Box
+         key={index}
+          opacity={hoveredIndex === null ? 1 : hoveredIndex === index ? 1 : 0.5}
+          _hover={{ opacity: 1 }}
+          onMouseEnter={() => setHoveredIndex(index)}
+          onMouseLeave={() => setHoveredIndex(null)}
+       >
         <Technology key={index} {...tech} />
+        </ Box>
       ))}
     </Grid>
   );
