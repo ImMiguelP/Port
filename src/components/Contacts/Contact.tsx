@@ -1,10 +1,12 @@
 import React from 'react';
-import { Grid, useBreakpointValue } from '@chakra-ui/react';
+import { Box, Grid, useBreakpointValue } from '@chakra-ui/react';
 import { FaGithubAlt, FaLinkedin } from "react-icons/fa6";
 import { MdMail } from "react-icons/md";
 import ContactInfo from './ContactInfo';
+import { useHoverOpacity } from '@/hooks/useStyling';
 
 const Contact = () => {
+  const { hoveredIndex, handleMouseEnter, handleMouseLeave } = useHoverOpacity()
   const contactinfo = [
     { name: 'Github', icon: <FaGithubAlt size={"32px"} />, link: 'https://github.com/ImMiguelP' },
     { name: 'LinkedIn', icon:<FaLinkedin size={"32px"} />, link: 'https://www.linkedin.com/in/miguelpedreguera/'},
@@ -20,7 +22,15 @@ const Contact = () => {
       alignItems="center" w="100%"
     >
       {contactinfo.map((contact, index) => (
+        <Box
+        key={index}
+         opacity={hoveredIndex === null ? 1 : hoveredIndex === index ? 1 : 0.5} 
+         _hover={{ opacity: hoveredIndex === index ? 1 : 0.5 }} 
+         onMouseEnter={() => handleMouseEnter(index)} 
+         onMouseLeave={() => handleMouseLeave()}
+         >
         <ContactInfo key={index} {...contact} />
+        </Box>
       ))}
     </Grid>
   );

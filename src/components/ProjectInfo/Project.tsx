@@ -3,7 +3,8 @@ import { Box, Button, HStack, IconButton, Tag, Text, Tooltip } from '@chakra-ui/
 import { AiFillGithub } from "react-icons/ai";
 import { LinkIcon } from '@chakra-ui/icons';
 import Link from 'next/link';
-import useZoom from '@/hooks/useZoom';
+import { useZoom } from '@/hooks/useStyling';
+
 
 
 interface ProjectProps {

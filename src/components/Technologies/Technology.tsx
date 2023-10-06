@@ -1,4 +1,4 @@
-import useZoom from '@/hooks/useZoom';
+import { useZoom } from '@/hooks/useStyling';
 import { Button, Tooltip } from '@chakra-ui/react';
 import React, { ReactNode } from 'react';
 

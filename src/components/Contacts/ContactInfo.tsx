@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 import { Button, Tooltip } from '@chakra-ui/react';
-import useZoom from '@/hooks/useZoom';
+import { useZoom } from '@/hooks/useStyling';
+
 
 
 interface ContactInfoProps {

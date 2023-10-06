@@ -1,4 +1,4 @@
-import useZoom from '@/hooks/useZoom';
+import { useZoom } from '@/hooks/useStyling';
 import { Button, HStack, Text, useColorMode } from '@chakra-ui/react'
 import Link from 'next/link'
 import React from 'react'

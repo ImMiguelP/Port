@@ -3,9 +3,10 @@ import { TbBrandNextjs } from "react-icons/tb";
 import { SiChakraui, SiSupabase, SiRemix, SiFirebase, SiJavascript, SiTypescript, SiTailwindcss, SiReact} from "react-icons/si";
 import React, { useState } from 'react'
 import Technology from './Technology';
+import { useHoverOpacity } from '@/hooks/useStyling';
 
 const Technologies = () => {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const { hoveredIndex, handleMouseEnter, handleMouseLeave } = useHoverOpacity()
   const technologies = [
     { name: 'Javascript', icon: <SiJavascript size={"32px"} />, link: 'https://www.javascript.com/'},
     { name: 'Typescript', icon: <SiTypescript size={"32px"}  /> , link: 'https://www.typescriptlang.org/'},
@@ -31,13 +32,13 @@ const Technologies = () => {
       {technologies.map((tech, index) => (
          <Box
          key={index}
-          opacity={hoveredIndex === null ? 1 : hoveredIndex === index ? 1 : 0.5}
-          _hover={{ opacity: 1 }}
-          onMouseEnter={() => setHoveredIndex(index)}
-          onMouseLeave={() => setHoveredIndex(null)}
+          opacity={hoveredIndex === null ? 1 : hoveredIndex === index ? 1 : 0.5} 
+          _hover={{ opacity: hoveredIndex === index ? 1 : 0.5 }} 
+          onMouseEnter={() => handleMouseEnter(index)} 
+          onMouseLeave={() => handleMouseLeave()}
        >
         <Technology key={index} {...tech} />
-        </ Box>
+        </Box>
       ))}
     </Grid>
   );
