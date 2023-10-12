@@ -1,5 +1,6 @@
 // useStyling.js
 import { useState } from 'react';
+import { useIsMobile } from './useIsMobile';
 
 export const useHoverOpacity = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -20,10 +21,11 @@ export const useHoverOpacity = () => {
 }
 
 export const useZoom = () => {
+  const isMobile = useIsMobile()
   const zoomEffect = {
     _hover: {
       bg: "transparent",
-      transform: "scale(1.15)",
+      transform: isMobile ? "scale(1.10)" : "scale(1.15)",
     },
     transition: "all 0.3s ease-in-out",
   };
