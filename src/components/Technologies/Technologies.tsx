@@ -20,12 +20,12 @@ const Technologies = () => {
   ];
 
 
-  const numColumns = useBreakpointValue({ base: 5, md: 10 });
+  const numColumns = useBreakpointValue({ base: 4, md: 10 });
   
 
   return (
     <Grid 
-      templateColumns={`repeat(${numColumns}, 1fr)`}
+      templateColumns={`repeat(${numColumns}, 2fr)`}
       gap={5}
       alignItems="center"
     >
