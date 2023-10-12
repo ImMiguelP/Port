@@ -1,25 +1,49 @@
 import { useZoom } from '@/hooks/useStyling';
-import { Button, HStack, Text, useColorMode } from '@chakra-ui/react'
-import Link from 'next/link'
-import React from 'react'
+import { Button, Center, Divider, HStack, useColorMode, useColorModeValue } from '@chakra-ui/react';
+import Link from 'next/link';
+import React from 'react';
 import { FaMoon, FaSun } from 'react-icons/fa6';
+import { RiHomeHeartFill } from 'react-icons/ri';
 
 const Nav = () => {
-    const { colorMode, toggleColorMode } = useColorMode();
-    const hoverEffect = useZoom();
-  return (
-    <HStack w={"100%"} px={10}  justifyContent={"space-between"} pos={"fixed"}  >
-    {/* THis is where a logo would go if i had one so for now it will just be my name */}
-        <Link href={"/"} >
-        <Text {...hoverEffect}>Miguel</Text>
-        </Link>
-        <HStack>
-        <Button variant="ghost" onClick={toggleColorMode} {...hoverEffect}>
-        {colorMode === "light" ? <FaMoon /> : <FaSun />}
-    </Button>
-        </HStack>
-    </HStack>
-  )
-}
+  const { colorMode, toggleColorMode } = useColorMode();
+  const bgColor = useColorModeValue('gray.100', 'dark')
+  const hoverEffect = useZoom();
 
-export default Nav
+  const handleMoonClick = () => {
+    if (colorMode === 'dark') {
+      toggleColorMode();
+    }
+  };
+
+  const handleSunClick = () => {
+    if (colorMode === 'light') {
+      toggleColorMode();
+    }
+  };
+
+  return (
+    <HStack w="100%" px={10} pos="fixed" height='100px'>
+      <Center w="100%" >
+        <Link href="/">
+          <Button variant="ghost" {...hoverEffect}>
+            <RiHomeHeartFill />
+          </Button>
+        </Link>
+        <Divider orientation='vertical' h={"20px"} />
+        <HStack ml={1} bgColor={`${bgColor}`} borderRadius={"lg"}>
+        <Center>
+        <Button variant="ghost" {...hoverEffect} onClick={handleMoonClick}  opacity={colorMode === 'light' ? 1 : 0.5}>
+            <FaSun />
+          </Button>
+          <Button variant="ghost" {...hoverEffect} onClick={handleSunClick} opacity={colorMode === 'dark' ? 1 : 0.5}>
+            <FaMoon />
+          </Button>
+        </Center>
+        </HStack>
+      </Center>
+    </HStack>
+  );
+};
+
+export default Nav;
