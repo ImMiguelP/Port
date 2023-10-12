@@ -20,7 +20,7 @@ const Technologies = () => {
   ];
 
 
-  const numColumns = useBreakpointValue({ base: 6, md: 10 });
+  const numColumns = useBreakpointValue({ base: 5, md: 10 });
   
 
   return (

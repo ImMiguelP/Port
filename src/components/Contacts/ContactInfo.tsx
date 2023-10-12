@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 import { Button, Tooltip } from '@chakra-ui/react';
 import { useZoom } from '@/hooks/useStyling';
+import { useIsMobile } from '@/hooks/useIsMobile';
 
 
 
@@ -13,6 +14,7 @@ interface ContactInfoProps {
 
 const ContactInfo: React.FC<ContactInfoProps> = ({ name, icon, link, email }) => {
   const hoverEffect = useZoom();
+  const isMobile = useIsMobile()
 
   const handleButtonClick = () => {
     if (link) {
@@ -27,7 +29,7 @@ const ContactInfo: React.FC<ContactInfoProps> = ({ name, icon, link, email }) =>
     <Tooltip label={name}>
       <Button
         variant="outline"
-        w="95%"
+        w={isMobile ? "100%" : "95%"}
         rounded="lg"
         onClick={handleButtonClick}
         {...hoverEffect}
