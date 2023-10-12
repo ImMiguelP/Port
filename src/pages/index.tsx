@@ -2,14 +2,15 @@ import {  Center, Heading, Stack, Link as ChakraLink   } from '@chakra-ui/react'
 import Technologies from '@/components/Technologies/Technologies'
 import Contact from '@/components/Contacts/Contact'
 import Projects from '@/components/ProjectInfo/Projects'
-
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 export default function Home() {
+  const isMobile = useIsMobile()
 
   
   return (
     <Center h={"100vh"} >
-      <Stack w={"100%"} maxW={"1000px"} h={"100%"} pt={"200px"}  spacing={3}>
+      <Stack w={isMobile ? "90%" : "100%"} maxW={"1000px"} h={"100%"} pt={"200px"}  spacing={3}>
       <Heading as={"h1"} size={"xl"}>
         Miguel
       </Heading>
@@ -31,7 +32,7 @@ export default function Home() {
         <Projects />
       </Stack>
       <Heading pt={"12px"}>
-        Contact
+        Contact 
       </Heading>
       <Stack direction={"row"}>
           <Contact />
