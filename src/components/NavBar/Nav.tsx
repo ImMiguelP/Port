@@ -4,6 +4,7 @@ import Link from 'next/link';
 import React from 'react';
 import { FaMoon, FaSun } from 'react-icons/fa6';
 import { RiHomeHeartFill } from 'react-icons/ri';
+import { GiClown } from "react-icons/gi";
 
 const Nav = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -28,6 +29,11 @@ const Nav = () => {
         <Link href="/">
           <Button variant="ghost" {...hoverEffect}>
             <RiHomeHeartFill />
+          </Button>
+        </Link>
+        <Link href="/troll">
+          <Button variant="ghost" {...hoverEffect}>
+            <GiClown />
           </Button>
         </Link>
         <Divider orientation='vertical' h={"20px"} />
