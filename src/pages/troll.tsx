@@ -1,34 +1,48 @@
 import { Box, Flex, Icon } from "@chakra-ui/react";
 import { GiClown } from "react-icons/gi";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
-const Troll = () => {
-  const container = useRef();
-  const [iconPosition, setIconPosition] = useState({ top: "50%", left: "50%" });
-  const [circles, setCircles] = useState([]);
+interface Circle {
+  top: string;
+  left: string;
+}
 
-  const manageMouseMove = (event) => {
+const Troll: React.FC = () => {
+  const container = useRef<HTMLDivElement | null>(null);
+  const [iconPosition, setIconPosition] = useState<Circle>({ top: "50%", left: "50%" });
+  const [circles, setCircles] = useState<Circle[]>([]);
+
+  const manageMouseMove = (event: React.MouseEvent) => {
     const { clientX, clientY } = event;
-    const containerPosition = container.current.getBoundingClientRect();
-    const x = clientX - containerPosition.left;
-    const y = clientY - containerPosition.top;
-    setIconPosition({ top: y + "px", left: x + "px" });
-    draw(x, y);
+    if (container.current) {
+      const containerPosition = container.current.getBoundingClientRect();
+      const x = clientX - containerPosition.left;
+      const y = clientY - containerPosition.top;
+      setIconPosition({ top: y + "px", left: x + "px" });
+      draw(x, y);
+    }
   };
 
-  const draw = (x, y) => {
+  const draw = (x: number, y: number) => {
     const newCircle = { top: y + "px", left: x + "px" };
     setCircles((prevCircles) => {
+      if (prevCircles.length > 25) {
+        prevCircles.shift();
+      }
       return [...prevCircles, newCircle];
     });
-    if (circles.length > 25) {
-        circles.shift(); // Remove the oldest circle when exceeding the limit
-      } else {
-        setTimeout(() => {
-            circles.shift()
-        }, 150)
-      }
   };
+
+  useEffect(() => {
+    const clearCirclesTimeout = setTimeout(() => {
+      setCircles([]);
+    }, 1500);
+
+    return () => {
+      clearTimeout(clearCirclesTimeout);
+    };
+  }, [circles]);
+  
 
   return (
     <Flex h="100vh" alignItems="center" justifyContent="center">
@@ -63,7 +77,7 @@ const Troll = () => {
           boxSize="160px"
           color="red"
           pos="absolute"
-          zIndex="2"
+          zIndex={2}
           top={iconPosition.top}
           left={iconPosition.left}
           transform="translate(-50%, -50%)"
