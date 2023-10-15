@@ -1,47 +1,88 @@
-import React from 'react';
-import { Box, Button, HStack, IconButton, Tag, Text, Tooltip } from '@chakra-ui/react';
+import React from "react";
+import {
+  Badge,
+  Box,
+  Button,
+  Center,
+  Divider,
+  Flex,
+  HStack,
+  Heading,
+  IconButton,
+  Image,
+  Tag,
+  Text,
+  Tooltip,
+} from "@chakra-ui/react";
 import { AiFillGithub } from "react-icons/ai";
-import { LinkIcon } from '@chakra-ui/icons';
-import Link from 'next/link';
-import { useZoom } from '@/hooks/useStyling';
-
-
+import { LinkIcon } from "@chakra-ui/icons";
+import Link from "next/link";
+import { useZoom } from "@/hooks/useStyling";
 
 interface ProjectProps {
-    name: string;
-    desc: string;
-    link?: string;
-    git?: string;
-  }
+  name: string;
+  desc: string;
+  link?: string;
+  git?: string;
+  images?: string;
+}
 
-const Project: React.FC<ProjectProps> = ({ name, desc, link, git })=> {
+const Project: React.FC<ProjectProps> = ({ name, desc, link, git, images }) => {
   const hoverEffect = useZoom();
 
   return (
-    <Tooltip label={name} placement='bottom-start'>
-      <Button as={Box} variant="outline" w="100%" rounded="lg" {...hoverEffect}>
-        <HStack justifyContent="space-between" alignContent="self-start" w="100%">
-          <Text>
+    <Box maxW="lg" borderWidth="1px" borderRadius="lg" overflow="hidden" pb={5}>
+      <Image src={images} {...hoverEffect} />
+      <Box p={6}>
+        <HStack alignItems="baseline">
+          <Heading as="h4" size="md">
             {name}
-            <Tag ml={3} size="md" colorScheme="blue">
-              {desc}
-            </Tag>
-          </Text>
-          <HStack>
+          </Heading>
+          <Tag size="sm" colorScheme="blue">
+            {desc}
+          </Tag>
+        </HStack>
+      </Box>
+      <Center>
+        <Box borderWidth="1px"  w="90%" rounded="lg">
+          <HStack
+            justifyContent="space-between"
+            alignContent="self-start"
+            w="100%"
+          >
             {link && (
               <Link href={link}>
-                <IconButton variant="ghost" aria-label="Go to website" size="sm" icon={<LinkIcon />} />
+                <Button
+                  rightIcon={<LinkIcon />}
+                  aria-label="Go to Project"
+                  colorScheme="blue"
+                  variant="ghost"
+                  size="sm"
+                  w={"100%"}
+                >
+                  View Project
+                </Button>
               </Link>
             )}
+            <Divider orientation="vertical" h={"25px"} />
             {git && (
               <Link href={git}>
-                <IconButton variant="ghost" aria-label="Go to GitHub" size="sm" icon={<AiFillGithub />} />
+                <Button
+                  rightIcon={<AiFillGithub />}
+                  aria-label="Go to GitHub"
+                  colorScheme="blue"
+                  variant="ghost"
+                  size="sm"
+                  w={"100%"}
+                >
+                  Git Code
+                </Button>
               </Link>
             )}
           </HStack>
-        </HStack>
-      </Button>
-    </Tooltip>
+        </Box>
+      </Center>
+    </Box>
   );
 };
 
