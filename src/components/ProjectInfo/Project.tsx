@@ -71,7 +71,7 @@ const Project: React.FC<ProjectProps> = ({ name, desc, link, git, images }) => {
                   size="sm"
                   w={"100%"}
                 >
-                  Git Code
+                  GitHub Repo
                 </Button>
               </Link>
             )}
