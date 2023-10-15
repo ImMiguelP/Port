@@ -1,7 +1,7 @@
 import { Box, Grid, useBreakpointValue } from '@chakra-ui/react'
 import { TbBrandNextjs } from "react-icons/tb";
 import { SiChakraui, SiSupabase, SiRemix, SiFirebase, SiJavascript, SiTypescript, SiTailwindcss, SiReact} from "react-icons/si";
-import React, { useState } from 'react'
+import React from 'react'
 import Technology from './Technology';
 import { useHoverOpacity } from '@/hooks/useStyling';
 

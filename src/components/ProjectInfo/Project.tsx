@@ -1,17 +1,13 @@
 import React from "react";
 import {
-  Badge,
   Box,
   Button,
   Center,
   Divider,
-  Flex,
   HStack,
   Heading,
-  IconButton,
   Image,
   Tag,
-  Text,
   Tooltip,
 } from "@chakra-ui/react";
 import { AiFillGithub } from "react-icons/ai";
