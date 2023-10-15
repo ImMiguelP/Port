@@ -1,6 +1,7 @@
-import { Box, Flex, Icon } from "@chakra-ui/react";
+import { Box, Flex, Heading, Icon } from "@chakra-ui/react";
 import { GiClown } from "react-icons/gi";
 import React, { useEffect, useRef, useState } from "react";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 interface Circle {
   top: string;
@@ -9,8 +10,13 @@ interface Circle {
 
 const Troll: React.FC = () => {
   const container = useRef<HTMLDivElement | null>(null);
-  const [iconPosition, setIconPosition] = useState<Circle>({ top: "50%", left: "50%" });
+  const [iconPosition, setIconPosition] = useState<Circle>({
+    top: "50%",
+    left: "50%",
+  });
   const [circles, setCircles] = useState<Circle[]>([]);
+
+  const isMobile = useIsMobile();
 
   const manageMouseMove = (event: React.MouseEvent) => {
     const { clientX, clientY } = event;
@@ -42,9 +48,12 @@ const Troll: React.FC = () => {
       clearTimeout(clearCirclesTimeout);
     };
   }, [circles]);
-  
 
-  return (
+  return isMobile ? (
+    <Flex h="100vh" alignItems="center" justifyContent="center">
+      <Heading>This ft is for desktop only sorry ;p</Heading>
+    </Flex>
+  ) : (
     <Flex h="100vh" alignItems="center" justifyContent="center">
       <Flex
         ref={container}
