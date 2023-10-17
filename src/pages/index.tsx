@@ -4,6 +4,7 @@ import {
   Stack,
   Link as ChakraLink,
   Divider,
+  Box,
 } from "@chakra-ui/react";
 import Technologies from "@/components/Technologies/Technologies";
 import Contact from "@/components/Contacts/Contact";
@@ -44,9 +45,12 @@ export default function Home() {
         <Projects />
         <Divider pt="50px" />
         <Center>
-          <Heading py="50px">Contact Me</Heading>
+          <Heading py="50px" id="contact-me">
+            Contact Me
+          </Heading>
         </Center>
         <Contact />
+        <Center pb="200px"></Center>
       </Stack>
     </Center>
   );
