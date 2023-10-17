@@ -4,7 +4,6 @@ import {
   Stack,
   Link as ChakraLink,
   Divider,
-  Box,
 } from "@chakra-ui/react";
 import Technologies from "@/components/Technologies/Technologies";
 import Contact from "@/components/Contacts/Contact";
@@ -31,7 +30,7 @@ export default function Home() {
           <ChakraLink
             href="https://musy.one"
             textDecoration="underline"
-            color="blue"
+            color="blue.300"
           >
             musy
           </ChakraLink>
