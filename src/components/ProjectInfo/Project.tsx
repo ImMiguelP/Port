@@ -40,7 +40,7 @@ const Project: React.FC<ProjectProps> = ({ name, desc, link, git, images }) => {
         </HStack>
       </Box>
       <Center>
-        <Box borderWidth="1px"  w="90%" rounded="lg">
+        <Box borderWidth="1px" w="90%" rounded="lg">
           <HStack
             justifyContent="space-between"
             alignContent="self-start"
