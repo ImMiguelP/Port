@@ -44,10 +44,11 @@ const Projects = () => {
 
   return (
     <Grid
-    templateColumns={`repeat(${numColumns}, 1fr)`}
-    gap={4}
-    alignItems="center" w="100%"
-  >
+      templateColumns={`repeat(${numColumns}, 1fr)`}
+      gap={4}
+      alignItems="center"
+      w="100%"
+    >
       {projects.map((project, index) => (
         <Box
           key={index}
