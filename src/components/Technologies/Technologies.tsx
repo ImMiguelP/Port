@@ -9,6 +9,7 @@ import {
   SiTypescript,
   SiTailwindcss,
   SiReact,
+  SiPrisma,
 } from "react-icons/si";
 import React from "react";
 import Technology from "./Technology";
@@ -62,6 +63,11 @@ const Technologies = () => {
       name: "Remix",
       icon: <SiRemix size={"32px"} />,
       link: "https://remix.run/",
+    },
+    {
+      name: "Primsa",
+      icon: <SiPrisma size={"32px"} />,
+      link: "https://www.prisma.io/",
     },
   ];
 
