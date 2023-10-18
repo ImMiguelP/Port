@@ -4,11 +4,13 @@ import {
   Button,
   Center,
   Divider,
+  Grid,
   HStack,
   Heading,
   Image,
   Tag,
   Tooltip,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import { AiFillGithub } from "react-icons/ai";
 import { LinkIcon } from "@chakra-ui/icons";
@@ -21,10 +23,19 @@ interface ProjectProps {
   link?: string;
   git?: string;
   images?: string;
+  tech: string | string[];
 }
 
-const Project: React.FC<ProjectProps> = ({ name, desc, link, git, images }) => {
+const Project: React.FC<ProjectProps> = ({
+  name,
+  desc,
+  link,
+  git,
+  images,
+  tech,
+}) => {
   const hoverEffect = useZoom();
+  const numColumns = useBreakpointValue({ base: 3, md: 4 });
 
   return (
     <Box maxW="lg" borderWidth="1px" borderRadius="lg" overflow="hidden" pb={5}>
@@ -39,6 +50,24 @@ const Project: React.FC<ProjectProps> = ({ name, desc, link, git, images }) => {
           </Tag>
         </HStack>
       </Box>
+      <Grid
+        templateColumns={`repeat(${numColumns}, 1fr)`}
+        gap={4}
+        w="100%"
+        p={5}
+      >
+        {Array.isArray(tech) ? (
+          tech.map((item, index) => (
+            <Tag key={index} h="40px" variant="outline" colorScheme="blue">
+              {item}
+            </Tag>
+          ))
+        ) : (
+          <Tag size="sm" colorScheme="blue">
+            {tech}
+          </Tag>
+        )}
+      </Grid>
       <Center>
         <Box borderWidth="1px" w="90%" rounded="lg">
           <HStack

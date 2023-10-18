@@ -12,6 +12,13 @@ const Projects = () => {
       desc: "Employee",
       link: "https://www.inreach.gg/",
       images: "/images/projects/inreach.png",
+      tech: [
+        "Web Design",
+        "Front End Development",
+        "UI/UX Design",
+        "TypeScript",
+        "Tailwind",
+      ],
     },
     {
       name: "Ethereum",
@@ -19,6 +26,13 @@ const Projects = () => {
       link: "https://ethereum.org/en/",
       git: "https://github.com/ImMiguelP/ethereum-org-website",
       images: "/images/projects/eth1.png",
+      tech: [
+        "Web Design",
+        "Front End Development",
+        "UI/UX Design",
+        "TypeScript",
+        "Chakra-UI",
+      ],
     },
     {
       name: "Musy",
@@ -26,17 +40,43 @@ const Projects = () => {
       link: "https://musy.one/",
       git: "https://github.com/laurentlucian/musy",
       images: "/images/projects/musy2.png",
+      tech: [
+        "Web Design",
+        "Front End Development",
+        "UI/UX Design",
+        "Remix",
+        "TypeScript",
+        "Chakra-UI",
+        "Prisma",
+      ],
     },
     {
       name: "Instagram Clone",
       desc: "Creator",
       git: "https://github.com/ImMiguelP/instagram-clone",
       images: "/images/projects/ig1.png",
+      tech: [
+        "Web Design",
+        "Front End Development",
+        "UI/UX Design",
+        "React",
+        "JavaScript",
+        "Chakra-UI",
+        "Supabase",
+      ],
     },
     {
       name: "Portfolio",
       desc: "Creator",
       git: "https://github.com/ImMiguelP/Port",
+      tech: [
+        "Web Design",
+        "Front End Development",
+        "UI/UX Design",
+        "Next.JS",
+        "TypeScript",
+        "Chakra-UI",
+      ],
     },
   ];
 
