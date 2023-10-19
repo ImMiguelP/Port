@@ -15,6 +15,7 @@
     "@chakra-ui/react": "^2.8.1",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@radix-ui/themes": "^2.0.0",
     "@types/node": "18.14.2",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
@@ -23,6 +24,10 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.11.0",
+    "tamagui": "^1.74.20",
     "typescript": "4.9.5"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.3"
   }
 }
