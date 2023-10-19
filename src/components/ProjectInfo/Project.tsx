@@ -16,9 +16,11 @@ import { AiFillGithub } from "react-icons/ai";
 import { LinkIcon } from "@chakra-ui/icons";
 import Link from "next/link";
 import { useZoom } from "@/hooks/useStyling";
+import StickyButton from "../StickyButton";
 
 interface ProjectProps {
   name: string;
+  title: string;
   desc: string;
   link?: string;
   git?: string;
@@ -33,12 +35,24 @@ const Project: React.FC<ProjectProps> = ({
   git,
   images,
   tech,
+  title,
 }) => {
   const hoverEffect = useZoom();
   const numColumns = useBreakpointValue({ base: 3, md: 4 });
 
   return (
-    <Box maxW="lg" borderWidth="1px" borderRadius="lg" overflow="hidden" pb={5}>
+    <Box
+      maxW="lg"
+      h="700px"
+      maxH="700px"
+      borderWidth="1px"
+      borderRadius="lg"
+      overflow="hidden"
+      pb={5}
+      display="flex"
+      flexDirection="column"
+      justifyContent="space-between"
+    >
       <Image src={images} {...hoverEffect} />
       <Box p={6}>
         <HStack alignItems="baseline">
@@ -46,10 +60,13 @@ const Project: React.FC<ProjectProps> = ({
             {name}
           </Heading>
           <Tag size="sm" colorScheme="blue">
-            {desc}
+            {title}
           </Tag>
         </HStack>
       </Box>
+      <Heading as="h6" size="xs" px={6}>
+        {desc}
+      </Heading>
       <Grid
         templateColumns={`repeat(${numColumns}, 1fr)`}
         gap={4}
@@ -58,9 +75,11 @@ const Project: React.FC<ProjectProps> = ({
       >
         {Array.isArray(tech) ? (
           tech.map((item, index) => (
-            <Tag key={index} h="40px" variant="outline" colorScheme="blue">
-              {item}
-            </Tag>
+            <StickyButton>
+              <Tag key={index} h="40px" variant="outline" colorScheme="blue">
+                {item}
+              </Tag>
+            </StickyButton>
           ))
         ) : (
           <Tag size="sm" colorScheme="blue">
